@@ -21,3 +21,4 @@ Route::get('trangchu', function () {
     return view('tranhChu');
 });
 Route::resource('post', PostController::class);
+Route::resource('products', ProductController::class);
