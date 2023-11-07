@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image')->nulltable();
-            $table->text('describe')->nulltable();
+            $table->string('image')->nullable();
+            $table->text('describe')->nullable();
             $table->string('status')->default(value:\App\Models\Post::STATUS_DRAFT);
             $table->timestamps();
         });

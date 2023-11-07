@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $data = Post::query()->paginate();
+        $data = Post::query()->paginate(5);
         return view(self::PATH_VIEW.__FUNCTION__, compact('data'));
     }
 
@@ -24,7 +24,7 @@ class PostController extends Controller
     public function create()
     {
         //
-
+        return view(self::PATH_VIEW.__FUNCTION__);
     }
 
     /**
@@ -32,7 +32,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::query()->create($request->all());
+
+        return back()->with('msg', 'Thao tác thành công');
     }
 
     /**
@@ -41,6 +43,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        return view(self::PATH_VIEW . __FUNCTION__, compact('post'));
     }
 
     /**
@@ -49,6 +52,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+
+        return view(self::PATH_VIEW.__FUNCTION__, compact('post'));
     }
 
     /**
@@ -57,6 +62,9 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $post->update($request->all());
+        return back()->with('msg', 'Thao tác thành công');
+
     }
 
     /**
@@ -65,5 +73,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->delete();
+
+        return back()->with('msg', 'Thao tác thành công');
     }
 }

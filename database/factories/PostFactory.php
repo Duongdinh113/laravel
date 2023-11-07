@@ -25,10 +25,10 @@ class PostFactory extends Factory
         ])->random(1)[0];
             return [
             //
-            'title'=>fake()->text(70),
-            'image'=>fake()->imageUrl(),
-            'describe'=>fake()->text(),
-            'status'=> $status
+            'title' => fake()->text(70),
+            'image' => fake()->imageUrl,
+            'describe' => fake()->text,
+            'status' => $status,
         ];
     }
 }
