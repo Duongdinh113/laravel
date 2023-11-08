@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
+use App\Models\Categoris;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class PostFactory extends Factory
+class CategorisFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,12 +18,13 @@ class PostFactory extends Factory
     public function definition(): array
     {
         $status = collect([
-            Post::STATUS_PUBLISHED,
-            Post::STATUS_DRAFT,
+            Categoris::STATUS_DRAFT,
+            Categoris::STATUS_PUBLISHED,
         ])->random(1)[0];
-
         return [
-            'title' => fake()->text(70),
+            //
+            'title' => fake()->text(50),
+            'name' => fake()->text(20),
             'image' => fake()->imageUrl,
             'describe' => fake()->text,
             'status' => $status,

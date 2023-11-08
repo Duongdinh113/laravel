@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategorisController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -24,3 +25,4 @@ Route::get('trangchu', function () {
 Route::resource('posts', PostController::class);
 // Route::resource('create', PostController::class);
 Route::resource('products',ProductController::class);
+Route::resource('categoris',CategorisController::class);
